@@ -1,0 +1,2 @@
+#Ignore files below not needed in git
+node_modules/
