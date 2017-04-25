@@ -15,7 +15,8 @@ var userSchema = new Schema({
         required: true
     },
     emailAddress: [String],
-    pets:[petSchema]
+    pets:[petSchema],
+    county: String
 });
 
 

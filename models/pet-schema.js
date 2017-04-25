@@ -4,12 +4,15 @@ var Schema = mongoose.Schema;
 var petSchema = new Schema({
     owner: String,
     pets: [{
-        kind: String,
+        kind: {
+            type: String,
+            enum: ['dog', 'cat', 'bird']
+        },
         gender: {
             type: String,
             enum: ['male', 'female']
         },
-        photo: [String],
+        photo: String,
         missingSince: {
             type: Date,
             default: Date.now

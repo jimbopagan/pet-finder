@@ -4,12 +4,12 @@ var router = express.Router();
 
 //models
 
-var Pet = require('../models/pets-schema');
+var Pet = require('../models/pet-schema');
 
 router
     .route('/')
     .get(function (req, res) {
-        console.log(re.query);
+        console.log(req.query);
         Pet.find(req.query, function (err, pets) {
             if (err) {
                 res.send(err)
@@ -59,3 +59,4 @@ router
         res.send(response);
     })
 })
+module.exports = router;
