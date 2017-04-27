@@ -8,15 +8,22 @@ var userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true
     },
     password: {
         type: String,
         required: true
     },
     emailAddress: [String],
-    pets:[petSchema],
-    county: String
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    pets:[{
+        type: Schema.Types.ObjectId, 
+        ref: 'Pet'
+    }]
 });
 
 

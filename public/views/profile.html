@@ -1,13 +1,12 @@
-  <div class='container-fluid'>
-      <div id='profile-row' class='row'>
+<div class='container-fluid'>
+    <div id='profile-row' class='row'>
         <div id='profile-column' class='col-xs-12'>
-          <form id='formProfile'>
-            <h4>Log in or Create a New Profile</h4>
-            <p><input type="email" placeholder="email" required="true"/></p>
-            <p><input type="password" placeholder="password" required="true"/></p>
-            <p><button>Log In</button> <button>Create New Profile</button> </p>
-          </form>
+            <form id='profile-form'>
+                <h4>Create a New Profile or Update Profile</h4>
+                <p><input type="email" placeholder="email" required="true" ng-model='user.email' /></p>
+                <p><input type="password" placeholder="password" required="true" ng-model='user.password' /></p>
+                <p><button ng-click='logInFunc(user)'>Log In</button></p>
+            </form>
         </div>
-
-        </div>
-      </div>
+    </div>
+</div>

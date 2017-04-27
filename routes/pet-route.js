@@ -20,10 +20,11 @@ router
     })
 
     .post(function (req, res) {
-        var pet = new Pets(req.body);
+        var pet = new Pet(req.body);
+        pet.owner = req.user
         pet.save(function (err, createdPet) {
             if (err) {
-                res.send(err);
+                    res.send(err);
             }
             res.send(createdPet);
         })
@@ -32,18 +33,13 @@ router
 router
     .route('/:id')
     .put(function (req, res) {
-        Pet.findById(req.params.id, function (err, pet) {
+        Pet.findByIdAndUpdate({_id: req.params.todoId, user: req.user._id}, function (err, pet) {
             if (err) {
                 res.status(500).send(err);
             } else {
-                pet.owner = req.body.owner || pet.owner;
-                pet.pets = req.body.pets || pet.pets;
-                pet.pets.kind = req.body.pets.kind || pet.pets.kind;
-                pet.pets.gender = req.body.pets.gender || pet.pets.gender;
-                pet.pets.photo = req.body.pets.photo || pet.pets.photo;
-                pet.pets.missingSince = req.body.pets.missingSince || pet.pets.missingSince;
-                pet.save(function(err, pet){
-                    if(err){
+
+                pet.save(function (err, pet) {
+                    if (err) {
                         res.status(500).send(err)
                     }
                 })
@@ -51,12 +47,12 @@ router
             }
         })
     })
-.delete(function(req, res){
-    Pet.findByIdAndRemove(req.params.id, function(err, garden){
-        var response = {
-            message: 'pet deleted',
-        }
-        res.send(response);
+    .delete(function (req, res) {
+        Pet.findByIdAndRemove({_id: req.params.todoId, user: req.user._id}, function (err, pet) {
+            var response = {
+                message: 'pet deleted',
+            }
+            res.send(response);
+        })
     })
-})
 module.exports = router;
