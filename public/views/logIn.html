@@ -3,9 +3,10 @@
         <div id='logIn-column' class='col-xs-12'>
             <form id='logIn-form'>
                 <h4>Log in</h4>
-                <p><input type="email" placeholder="email" required="true" ng-model='user.emailAddress'/></p>
-                <p><input type="password" placeholder="password" required="true" ng-model='user.password'/></p>
+                <p><input type="text" placeholder="user name" ng-model='user.username'/></p>
+                <p><input type="password" placeholder="password"  ng-model='user.password'/></p>
                 <p><button ng-click='logInFunc(user)'>Log In</button></p>
+                <p><button ng-click="go('/profile')">create new user</button></p>
             </form>
         </div>
     </div>

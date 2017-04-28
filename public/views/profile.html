@@ -3,9 +3,18 @@
         <div id='profile-column' class='col-xs-12'>
             <form id='profile-form'>
                 <h4>Create a New Profile or Update Profile</h4>
-                <p><input type="email" placeholder="email" required="true" ng-model='user.email' /></p>
-                <p><input type="password" placeholder="password" required="true" ng-model='user.password' /></p>
-                <p><button ng-click='logInFunc(user)'>Log In</button></p>
+                <p><input type="text" placeholder="full name" ng-model='user.name' /></p>
+                <p><input type="text" placeholder="user name" ng-model='user.username' /></p>
+                <p><input type="email" placeholder="email" ng-model='user.email' /></p>
+                <p><input type="number" placeholder="phone number" ng-model='user.number' /></p>
+                <p><input type="text" placeholder="county" ng-model='user.county' /></p>
+                <p><input type="text" placeholder="kind" ng-model='user.pets.kind' /></p>
+                <p><input type="text" placeholder="gender" ng-model='user.pets.gender' /></p>
+                <p><input type="url" placeholder="photo" ng-model='user.pets.photo' /></p>
+                <p><input type="date" placeholder="missing since" ng-model='user.pets.missingSince' /></p>
+                <p><input type="text" placeholder="county" ng-model='user.county' /></p>
+                <p><input type="password" placeholder="password" ng-model='user.password' /></p>
+                <p><button ng-click='profileFunc(user)'>Log In</button></p>
             </form>
         </div>
     </div>

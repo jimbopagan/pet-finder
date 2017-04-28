@@ -4,53 +4,61 @@ var router = express.Router();
 
 //models
 
-var Pet = require('../models/pet-schema');
+var User = require('../models/user-schema');
 
 router
     .route('/')
     .get(function (req, res) {
         console.log(req.query);
-        Pet.find(req.query, function (err, pets) {
+        console.log(req.params.id);
+        User.find(req.params.id)
+        .where('county')
+        .equals(req.query.county)
+        .exec(function(err, user){
             if (err) {
                 res.send(err)
             }
-            console.dir(pets);
-            res.send(pets)
+            console.dir(user);
+            res.send(user)
         })
     })
 
     .post(function (req, res) {
-        var pet = new Pet(req.body);
-        pet.owner = req.user
-        pet.save(function (err, createdPet) {
+        var user = new User(req.body);
+        user.save(function (err, createdPet) {
             if (err) {
-                    res.send(err);
+                res.send(err);
             }
             res.send(createdPet);
         })
     })
 
+
 router
     .route('/:id')
     .put(function (req, res) {
-        Pet.findByIdAndUpdate({_id: req.params.todoId, user: req.user._id}, function (err, pet) {
+        User.findByIdAndUpdate({
+            user: req.user._id
+        }, function (err, user) {
             if (err) {
                 res.status(500).send(err);
             } else {
 
-                pet.save(function (err, pet) {
+                user.save(function (err, user) {
                     if (err) {
                         res.status(500).send(err)
                     }
                 })
-                res.send(pet);
+                res.send(user);
             }
         })
     })
     .delete(function (req, res) {
-        Pet.findByIdAndRemove({_id: req.params.todoId, user: req.user._id}, function (err, pet) {
+        User.findByIdAndRemove({
+            user: req.user._id
+        }, function (err, user) {
             var response = {
-                message: 'pet deleted',
+                message: 'user deleted',
             }
             res.send(response);
         })

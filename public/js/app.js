@@ -6,8 +6,8 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'mainController',
 
         })
-        .when('/logIn', {
-            templateUrl: '/views/logIn.html',
+        .when('/login', {
+            templateUrl: '/views/login.html',
             controller: 'secondController',
 
         })

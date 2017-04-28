@@ -9,16 +9,16 @@ app.service('petService', ['$http', function ($http) {
             var queryString = "?county=" + county;
             alert('not county equal false')
         }
-        return $http.get('/pets' + queryString)
+        return $http.get('/api/pets' + queryString)
     }
     this.addPetService = function (obj) {
-        return $http.post('/pets', obj)
+        return $http.post('/api/pets', obj)
     }
     this.deletePetService = function (id) {
-        return $http.delete('/pets/' + id)
+        return $http.delete('/api/pets/' + id)
     }
     this.editPetService = function (obj, pet) {
-        return $http.put('/pets/' + pet._id, obj)
+        return $http.put('/api/pets/' + pet._id, obj)
     }
 }])
 
@@ -31,30 +31,30 @@ app.service('profileService', ['$http', function ($http) {
         //            var queryString = "?county=" + county; 
         //             alert('not county equal false')
         //        }
-        return $http.get('/profiles')
+        return $http.get('/api/profile')
     }
     this.addProfileService = function (obj) {
-        return $http.post('/profiles', obj)
+        return $http.post('/api/profile', obj)
     }
     this.deleteProfileService = function (id) {
-        return $http.delete('/profiles/' + id)
+        return $http.delete('/api/profile/' + id)
     }
     this.editProfileService = function (obj, profile) {
-        return $http.put('/profiles/' + profile._id, obj)
+        return $http.put('/api/profile/' + profile._id, obj)
     }
 }])
 
 app.service('loginService', ['$http', function ($http) {
-    this.myUser = function (login) {
-        return $http.get('/login')
+//    this.myUser = function (login) {
+//        return $http.get('/auth/login')
+//    }
+    this.addLoginService = function (obj) {
+        return $http.post('/auth/login', obj)
     }
-    this.addProfileService = function (obj) {
-        return $http.post('/login', obj)
-    }
-    this.deleteProfileService = function (id) {
-        return $http.delete('/login/' + id)
-    }
-    this.editProfileService = function (obj, profile) {
-        return $http.put('/login/' + profile._id, obj)
-    }
+//    this.deleteLoginService = function (id) {
+//        return $http.delete('/auth/login/' + id)
+//    }
+//    this.editLoginService = function (obj, login) {
+//        return $http.put('/auth/login/' + login._id, obj)
+//    }
 }])

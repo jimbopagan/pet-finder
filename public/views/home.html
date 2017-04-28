@@ -8,12 +8,14 @@
         <div class='row'>
             <div ng-repeat='pet in pets track by $index'>
                 <div class='col-xs-3'>
-                    <p>{{pet.owner}}</p>
-                    <p>{{pet.kind}}</p>
-                    <p>{{pet.gender}}</p>
-                    <p>{{pet.photo}}</p>
-                    <p>{{pet.missingSince | date: "MM.dd.y}}</p>
-                    <p>{{pet.county}}</p>
+                    <p>Owner Name: {{pet.name}}</p>
+                    <p>Owner email: {{pet.email}}</p>
+                    <p>Owner Contact Number: {{pet.phone}}</p>
+                    <p>Type of Pet: {{pet.pets.kind}}</p>
+                    <p>Gender of Pet: {{pet.pets.gender}}</p>
+                    <p>Photo of Pet: {{pet.pets.photo}}</p>
+                    <p>Missing Since: {{pet.pets.missingSince | date: "MM.dd.y}}</p>
+                    <p>County: {{pet.county}}</p>
                 </div>
             </div>
             

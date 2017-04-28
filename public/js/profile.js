@@ -2,7 +2,7 @@ var app = angular.module('myApp');
 
 app.controller('thirdController', ['$scope', 'profileService', function($scope, profileService){
     $scope.user=[];
-      $scope.userFunc = function (user) {
+      $scope.profileFunc = function (user) {
         profileService.myUser(user).then(function (res) {
            
             if(!res.data.length){
