@@ -1,0 +1,19 @@
+<div id='profile-row' class='row'>
+    <div id='profile-column' class='col-xs-12'>
+        <form id='profile-form'>
+            <h4>Create a New Profile or Update Profile</h4>
+            <p><input type="text" placeholder="full name" class="form-control" ng-model='user.name' /></p>
+            <p><input type="text" placeholder="user name" class="form-control" ng-model='user.username' /></p>
+            <p><input type="email" placeholder="email" class="form-control" ng-model='user.email' /></p>
+            <p><input type="number" placeholder="phone number" class="form-control" ng-model='user.number' /></p>
+            <p><input type="text" placeholder="county" class="form-control" ng-model='user.county' /></p>
+            <p><input type="text" placeholder="kind" class="form-control" ng-model='user.pets.kind' /></p>
+            <p><input type="text" placeholder="gender" class="form-control" ng-model='user.pets.gender' /></p>
+            <p><input type="url" placeholder="photo" class="form-control" ng-model='user.pets.photo' /></p>
+            <p><input type="date" placeholder="missing since" class="form-control" ng-model='user.pets.missingSince' /></p>
+            <p><input type="text" placeholder="county" class="form-control" ng-model='user.county' /></p>
+            <p><input type="password" placeholder="password" class="form-control" ng-model='user.password' /></p>
+            <p><button class="center-block btn btn-primary btn-lg" ng-click='profileFunc(user)'>Log In</button></p>
+        </form>
+    </div>
+</div>

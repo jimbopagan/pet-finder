@@ -5,6 +5,7 @@ var app = express();
 var pet = require('./routes/pet-route.js');
 var config = require("./config");
 var expressJwt = require("express-jwt");
+var path =require("path");
 
 
 //mongoose
@@ -21,7 +22,7 @@ app.use('/api/pets', pet);
 
 app.use("/auth", require("./routes/authRoutes"));
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(3000, function () {
     console.log('port 3000')

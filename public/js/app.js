@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute'])
+var app = angular.module('myApp', ['ngRoute', 'myApp.Auth'])
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/home', {
@@ -6,16 +6,16 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'mainController',
 
         })
-        .when('/login', {
-            templateUrl: '/views/login.html',
-            controller: 'secondController',
+        .when('/logout', {
+            templateUrl: '/views/home.html',
+            controller: 'LogoutController',
 
         })
-        .when('/profile', {
-            templateUrl: '/views/profile.html',
-            controller: 'thirdController',
-
-        })
+//        .when('/profile', {
+//            templateUrl: '/views/profile.html',
+//            controller: 'thirdController',
+//
+//        })
         .otherwise({
             redirecTo: '/home'
         })
