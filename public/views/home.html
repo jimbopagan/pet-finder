@@ -1,24 +1,23 @@
-<div id='home-background' class='container-fluid'>
-    <div id='home-row' class='row'>
-        <div id='home-column' class='col-xs-12 col-lg-4'>
-            <input type='text' placeholder='county' ng-model='county'>
-            <button ng-click='localAnimalFunc(county)'>Submit</button>
+<div id='home-row' class='row'>
+    <div id='boss-column' class='col-lg-12'>
+        <div id='home-column' class='col-xs-12 col-lg-2'>
+            <center><input class='home-column-group' type='text' placeholder='county' ng-model='county'>
+                <button class='home-column-group' ng-click='localAnimalFunc(county)'>Submit</button></center>
         </div>
-        
-        <div class='row'>
-            <div ng-repeat='pet in pets track by $index'>
-                <div class='col-xs-3'>
-                    <p>Owner Name: {{pet.name}}</p>
-                    <p>Owner email: {{pet.email}}</p>
-                    <p>Owner Contact Number: {{pet.phone}}</p>
-                    <p>Type of Pet: {{pet.pets.kind}}</p>
-                    <p>Gender of Pet: {{pet.pets.gender}}</p>
-                    <p>Photo of Pet: {{pet.pets.photo}}</p>
-                    <p>Missing Since: {{pet.pets.missingSince | date: "MM.dd.y}}</p>
-                    <p>County: {{pet.county}}</p>
-                </div>
+    </div>
+    <div id='pet-collector-boss'>
+        <div class='petCollector col-lg-3' ng-repeat='pet in pets track by $index'>
+            <div id='pets'>
+                <p>Owner Name: {{pet.name}}</p>
+                <p>Owner email: {{pet.email}}</p>
+                <p>Owner Contact Number: {{pet.phone}}</p>
+                <p>Type of Pet: {{pet.pets.kind}}</p>
+                <p>Gender of Pet: {{pet.pets.gender}}</p>
+                <p>Photo of Pet: <img class='addedImage' ng-src='{{pet.pets.photo}}'></p>
+                <p>Missing Since: {{pet.pets.missingSince | date: "MM.dd.y"}}</p>
+                <p>County: {{pet.county}} <button class='btn btn-xs' ng-show="pet._id === currentUser._id" class="delete" ng-click="delete($index, pet._id)">delete</button></p>
+
             </div>
-            
         </div>
     </div>
 </div>

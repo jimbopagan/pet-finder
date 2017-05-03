@@ -1,19 +1,32 @@
 <div id='profile-row' class='row'>
-    <div id='profile-column' class='col-xs-12'>
-        <form id='profile-form'>
+    <div id='profile-column' class='col-xs-12 col-lg-4'>
+        <form id='profile-form' class='form-inline'>
             <h4>Create a New Profile or Update Profile</h4>
-            <p><input type="text" placeholder="full name" class="form-control" ng-model='user.name' /></p>
-            <p><input type="text" placeholder="user name" class="form-control" ng-model='user.username' /></p>
-            <p><input type="email" placeholder="email" class="form-control" ng-model='user.email' /></p>
-            <p><input type="number" placeholder="phone number" class="form-control" ng-model='user.number' /></p>
-            <p><input type="text" placeholder="county" class="form-control" ng-model='user.county' /></p>
-            <p><input type="text" placeholder="kind" class="form-control" ng-model='user.pets.kind' /></p>
-            <p><input type="text" placeholder="gender" class="form-control" ng-model='user.pets.gender' /></p>
-            <p><input type="url" placeholder="photo" class="form-control" ng-model='user.pets.photo' /></p>
-            <p><input type="date" placeholder="missing since" class="form-control" ng-model='user.pets.missingSince' /></p>
-            <p><input type="text" placeholder="county" class="form-control" ng-model='user.county' /></p>
-            <p><input type="password" placeholder="password" class="form-control" ng-model='user.password' /></p>
-            <p><button class="center-block btn btn-primary btn-lg" ng-click='profileFunc(user)'>Log In</button></p>
+            <label class="sr-only" for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="full name" class="form-control sign-form" ng-model='user.name' />
+            <label class="sr-only" for="userName">User Name</label>
+            <input type="text" placeholder="user name" class="form-control sign-form" ng-model='user.username' />
+            <input type="email" placeholder="email" class="form-control sign-form" ng-model='user.email' />
+            <input type="number" placeholder="phone number" class="form-control sign-form" ng-model='user.phone' />
+            <input type="text" placeholder="state" class="form-control sign-form" ng-model='user.state' />
+             <input type="url" placeholder="photo" class="form-control sign-form" ng-model='user.pets.photo' />
+            <select ng-model='user.pets.gender'>
+               <option value="">-Gender-</option>
+                <option value='male' >Male</option>
+                <option value='female' >Female</option>
+            </select>
+            <select ng-model='user.pets.kind'>
+               <option value="">-Kind-</option>
+                <option value='dog' >Dog</option>
+                <option value='cat' >Cat</option>
+                <option value='bird' >Bird</option>
+            </select>
+            <input type="date" placeholder="missing since" class="form-control sign-form" ng-model='user.pets.missingSince' />
+            <input type="text" placeholder="county" class="form-control sign-form" ng-model='user.county' />
+            <input type="password" placeholder="password" class="form-control sign-form" ng-model='user.password' />
+            <input type="password" placeholder="type password again" class="form-control sign-form" ng-model='user.passwordRepeat' />
+            <span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
+            <button id='create-button' class="center-block btn btn-primary btn-lg" ng-click='profileFunc(user)'>Create</button>
         </form>
     </div>
 </div>

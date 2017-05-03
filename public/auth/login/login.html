@@ -10,10 +10,11 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" class="form-control" ng-model="user.password">
+                <a href="#/forgot" class="small">Forgot Password?</a>
             </div>
 
-            <button class="center-block btn btn-primary btn-lg" ng-click="logInFunc(user)">Login</button>
-            <button ng-click="go('/profile')">create new user</button>
+            <button class="left-inline btn btn-primary btn-lg" ng-click="logInFunc(user)">Login</button>
+            <button class="right-inline btn btn-primary btn-lg" ng-click="go('/signup')">Create New User</button>
         </form>
     </div>
 </div>  

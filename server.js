@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
-var pet = require('./routes/pet-route.js');
+var pet = require('./routes/pet-route');
 var config = require("./config");
 var expressJwt = require("express-jwt");
 var path =require("path");
@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 
 app.use("/api", expressJwt({secret: config.secret}));
 
-app.use('/api/pets', pet);
+app.use('/api', pet);
+
+app.use("/auth/change-password", expressJwt({secret: config.secret}));
 
 app.use("/auth", require("./routes/authRoutes"));
 

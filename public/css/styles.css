@@ -1,0 +1,90 @@
+body {
+    background-size: cover;
+    background-image: url(/img/anoir-chafik-37957.jpg);
+    /*    color: aliceblue;*/
+}
+
+a, label, h3 {
+    color: aliceblue
+}
+
+.container-fluid {
+    height: 100vh;
+    /*    max-height: 100%;*/
+    width: auto;
+    /*    background-image: url(/img/anoir-chafik-37957.jpg);*/
+    /*    background-size: contain;*/
+}
+
+#home-row {
+    margin: 1%;
+    height: 100%
+}
+
+.home-column-group {
+    width: inherit;
+}
+
+#home-column {
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 20px;
+    padding: 5px 0 5px 0;
+}
+
+#boss-column {
+    display: inline-flex;
+    /*    flex-direction: column;*/
+    /*    justify-content: center;*/
+    /*    align-content: center;*/
+    /*    align-items: center;*/
+}
+
+.sign-form {
+    max-width: 160px;
+    max-height: 20px;
+}
+
+select {
+    width: 160px
+}
+
+#create-button {
+    float: left;
+}
+
+#profile-img {
+    max-height: 100px;
+    max-width: auto;
+}
+
+#pets {
+    background-color: white;
+    /*    opacity: 1;*/
+    margin-bottom: 20px;
+    border-right: 2px solid rgba(173, 216, 230, 0.3);
+    padding-left: 7%;
+    /*    padding-right: 2%;*/
+    border-radius: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.addedImage {
+    height: 100px;
+    width: auto;
+}
+
+#pet-collector-boss {}
+
+.petCollector {
+    /*  display: inline-block;*/
+    float: left;
+}
+
+.listItem {
+    list-style-type: none;
+    display: inline;
+    margin: 5px;
+}

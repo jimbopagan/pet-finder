@@ -11,11 +11,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             controller: 'LogoutController',
 
         })
-//        .when('/profile', {
-//            templateUrl: '/views/profile.html',
-//            controller: 'thirdController',
-//
-//        })
+        .when("/profile", {
+            templateUrl: "/profile/profile.html",
+            controller: "ProfileController",
+        })
         .otherwise({
             redirecTo: '/home'
         })

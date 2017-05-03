@@ -4,7 +4,7 @@ app.controller("SignupController", ["$scope", "$location", "UserService", functi
     $scope.passwordMessage = "";
 
     $scope.profileFunc = function (user) {
-        if (user.password !== $scope.passwordRepeat) {
+        if (user.password !== user.passwordRepeat) {
             $scope.passwordMessage = "Passwords do not match.";
         } else {
             UserService.signup(user).then(function (response) {
@@ -14,4 +14,5 @@ app.controller("SignupController", ["$scope", "$location", "UserService", functi
             });
         }
     }
+    
 }]);

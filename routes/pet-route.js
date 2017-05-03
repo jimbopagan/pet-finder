@@ -7,19 +7,19 @@ var router = express.Router();
 var User = require('../models/user-schema');
 
 router
-    .route('/')
+    .route('/home')
     .get(function (req, res) {
         console.log(req.query);
         console.log(req.params.id);
         User.find(req.params.id)
         .where('county')
         .equals(req.query.county)
-        .exec(function(err, user){
+        .exec(function(err, users){
             if (err) {
                 res.send(err)
             }
-            console.dir(user);
-            res.send(user)
+            console.dir(users);
+            res.send({users:users, currentUser:req.user})
         })
     })
 
@@ -35,7 +35,7 @@ router
 
 
 router
-    .route('/:id')
+    .route('/home/:id')
     .put(function (req, res) {
         User.findByIdAndUpdate({
             user: req.user._id
