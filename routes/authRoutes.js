@@ -43,9 +43,7 @@ authRoutes.post("/login", function (req, res) {
     });
 });
 authRoutes.delete('/delete/:id', function (req, res) {
-    User.findByIdAndRemove({
-        user: req.user._id
-    }, function (err, user) {
+    User.findByIdAndRemove(req.user._id, function (err, user) {
         var response = {
             message: 'user deleted',
         }

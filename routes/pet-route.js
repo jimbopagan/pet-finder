@@ -12,15 +12,18 @@ router
         console.log(req.query);
         console.log(req.params.id);
         User.find(req.params.id)
-        .where('county')
-        .equals(req.query.county)
-        .exec(function(err, users){
-            if (err) {
-                res.send(err)
-            }
-            console.dir(users);
-            res.send({users:users, currentUser:req.user})
-        })
+            .where('county')
+            .equals(req.query.county)
+            .exec(function (err, users) {
+                if (err) {
+                    res.send(err)
+                }
+                console.dir(users);
+                res.send({
+                    users: users,
+                    currentUser: req.user
+                })
+            })
     })
 
     .post(function (req, res) {
@@ -54,9 +57,7 @@ router
         })
     })
     .delete(function (req, res) {
-        User.findByIdAndRemove({
-            user: req.user._id
-        }, function (err, user) {
+        User.findByIdAndRemove(req.user._id, function (err, user) {
             var response = {
                 message: 'user deleted',
             }
